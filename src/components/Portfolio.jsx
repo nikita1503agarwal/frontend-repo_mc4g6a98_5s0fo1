@@ -1,3 +1,5 @@
+import ParallaxLayer from "./ParallaxLayer"
+
 const projects = [
   {
     title: "Neon Finance",
@@ -18,7 +20,11 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section id="work" className="py-20 md:py-28 bg-slate-50">
+    <section id="work" className="relative py-20 md:py-28 bg-slate-50 overflow-hidden">
+      {/* subtle floating glows */}
+      <ParallaxLayer speed={0.06} className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
+      <ParallaxLayer speed={0.04} className="absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="flex items-end justify-between gap-4">
           <div>

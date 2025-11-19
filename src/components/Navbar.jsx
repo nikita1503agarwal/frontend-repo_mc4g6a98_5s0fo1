@@ -1,11 +1,16 @@
 import { Menu, Palette, Sparkles } from "lucide-react"
 import { useState } from "react"
+import ParallaxLayer from "./ParallaxLayer"
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 border-b border-slate-200/60">
+      <div className="relative">
+        <ParallaxLayer speed={0.03} className="pointer-events-none absolute -left-10 top-0 h-24 w-24 rounded-full bg-fuchsia-400/20 blur-2xl" />
+      </div>
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#home" className="flex items-center gap-2 group">

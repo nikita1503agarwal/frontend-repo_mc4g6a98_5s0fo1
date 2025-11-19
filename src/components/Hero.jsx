@@ -1,12 +1,12 @@
 import { ArrowRight, Sparkles } from "lucide-react"
+import ParallaxLayer from "./ParallaxLayer"
 
 export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-fuchsia-400/30 blur-3xl" />
-        <div className="absolute top-10 -right-20 h-96 w-96 rounded-full bg-cyan-400/30 blur-3xl" />
-      </div>
+      {/* Parallax background glows */}
+      <ParallaxLayer speed={0.12} className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-fuchsia-400/30 blur-3xl -z-10" />
+      <ParallaxLayer speed={0.08} className="absolute top-10 -right-20 h-96 w-96 rounded-full bg-cyan-400/30 blur-3xl -z-10" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-20 md:py-28">
         <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -35,8 +35,8 @@ export default function Hero() {
             <div className="relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
               <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1600&auto=format&fit=crop" alt="Design Showcase" className="h-full w-full object-cover" />
             </div>
-            <div className="pointer-events-none absolute -bottom-6 -left-6 h-28 w-28 rounded-xl bg-fuchsia-400/40 blur-2xl" />
-            <div className="pointer-events-none absolute -top-6 -right-6 h-28 w-28 rounded-xl bg-cyan-400/40 blur-2xl" />
+            <ParallaxLayer speed={0.18} className="pointer-events-none absolute -bottom-6 -left-6 h-28 w-28 rounded-xl bg-fuchsia-400/40 blur-2xl" />
+            <ParallaxLayer speed={0.1} className="pointer-events-none absolute -top-6 -right-6 h-28 w-28 rounded-xl bg-cyan-400/40 blur-2xl" />
           </div>
         </div>
       </div>

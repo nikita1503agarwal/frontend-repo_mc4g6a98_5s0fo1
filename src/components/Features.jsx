@@ -1,4 +1,5 @@
 import { PenTool, Layout, Camera, Monitor, Sparkles } from "lucide-react"
+import ParallaxLayer from "./ParallaxLayer"
 
 const features = [
   {
@@ -25,7 +26,9 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-white">
+    <section id="services" className="relative py-20 md:py-28 bg-white overflow-hidden">
+      <ParallaxLayer speed={0.05} className="absolute -top-24 left-10 h-64 w-64 rounded-full bg-violet-400/20 blur-3xl" />
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 shadow-sm">

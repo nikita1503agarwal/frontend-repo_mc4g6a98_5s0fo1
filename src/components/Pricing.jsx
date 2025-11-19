@@ -1,6 +1,10 @@
+import ParallaxLayer from "./ParallaxLayer"
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-white">
+    <section id="pricing" className="relative py-20 md:py-28 bg-white overflow-hidden">
+      <ParallaxLayer speed={0.05} className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="max-w-2xl">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">Simple, flexible pricing</h2>
@@ -22,7 +26,7 @@ export default function Pricing() {
 
           <div className="rounded-2xl border-2 border-slate-900 bg-slate-900 p-6 text-white shadow-sm">
             <h3 className="text-lg font-semibold">Growth</h3>
-            <p className="mt-2 text-sm text-slate-200">Brand + marketing page</p>
+            <p className="mt-2 text-sm text-slate-2 00">Brand + marketing page</p>
             <p className="mt-4 text-3xl font-extrabold">$3,800</p>
             <ul className="mt-4 space-y-2 text-sm text-slate-200">
               <li>— 2-4 weeks</li>
