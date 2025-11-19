@@ -3,8 +3,8 @@ import ParallaxLayer from "./ParallaxLayer"
 export default function CTA() {
   return (
     <section id="contact" className="relative overflow-hidden py-20 md:py-28">
-      <ParallaxLayer speed={0.06} className="absolute -bottom-32 -right-20 h-96 w-96 rounded-full bg-violet-400/30 blur-3xl -z-10" />
-      <ParallaxLayer speed={0.04} className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-fuchsia-400/30 blur-3xl -z-10" />
+      <ParallaxLayer speed={0.12} className="absolute -bottom-32 -right-20 h-96 w-96 rounded-full bg-violet-400/35 blur-3xl -z-10" />
+      <ParallaxLayer speed={0.08} className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-fuchsia-400/35 blur-3xl -z-10" />
 
       <div className="mx-auto max-w-3xl px-6 sm:px-8">
         <div className="rounded-3xl border border-slate-200 bg-white/80 p-8 md:p-12 shadow-xl backdrop-blur">

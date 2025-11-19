@@ -21,9 +21,9 @@ const projects = [
 export default function Portfolio() {
   return (
     <section id="work" className="relative py-20 md:py-28 bg-slate-50 overflow-hidden">
-      {/* subtle floating glows */}
-      <ParallaxLayer speed={0.06} className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
-      <ParallaxLayer speed={0.04} className="absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
+      {/* stronger floating glows */}
+      <ParallaxLayer speed={0.12} className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-fuchsia-400/25 blur-3xl" />
+      <ParallaxLayer speed={0.08} className="absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-cyan-400/25 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="flex items-end justify-between gap-4">
@@ -35,12 +35,16 @@ export default function Portfolio() {
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
+          {projects.map((p, idx) => (
             <article key={p.title} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={p.image} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="relative aspect-[4/3] overflow-hidden">
+                {/* per-card parallax image and overlay */}
+                <ParallaxLayer speed={0.06 + idx * 0.02} className="absolute inset-0">
+                  <img src={p.image} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </ParallaxLayer>
+                <ParallaxLayer speed={0.12 + idx * 0.03} className="pointer-events-none absolute -bottom-6 -right-6 h-28 w-28 rounded-xl bg-fuchsia-400/30 blur-2xl" />
               </div>
-              <div className="p-5">
+              <div className="p-5 relative z-10">
                 <div className="flex items-center gap-2 text-xs text-slate-500">
                   {p.tags.map(t => (
                     <span key={t} className="rounded-full bg-slate-100 px-2 py-1">{t}</span>

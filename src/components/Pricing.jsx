@@ -3,7 +3,7 @@ import ParallaxLayer from "./ParallaxLayer"
 export default function Pricing() {
   return (
     <section id="pricing" className="relative py-20 md:py-28 bg-white overflow-hidden">
-      <ParallaxLayer speed={0.05} className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-fuchsia-400/20 blur-3xl" />
+      <ParallaxLayer speed={0.1} className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-fuchsia-400/25 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="max-w-2xl">

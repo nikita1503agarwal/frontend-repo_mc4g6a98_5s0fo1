@@ -1,18 +1,35 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 /**
  * ParallaxLayer
- * Adds a translateY transform based on window scroll for a subtle parallax effect.
- * Usage: absolutely position inside a relatively positioned section.
+ * Translates along Y based on window scroll for a parallax effect.
+ * - Place inside relatively positioned parents when using as decorative absolute layers
+ * - Can also wrap normal content (e.g., images) for gentle motion
+ * - Respects prefers-reduced-motion by default
  */
-export default function ParallaxLayer({ speed = 0.2, className = "", style = {}, children }) {
+export default function ParallaxLayer({
+  speed = 0.2,
+  className = "",
+  style = {},
+  children,
+  respectReducedMotion = true,
+}) {
   const [offset, setOffset] = useState(0)
+  const prefersReducedMotion = useMemo(() =>
+    typeof window !== "undefined" && "matchMedia" in window
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false,
+  [])
 
   useEffect(() => {
+    if (respectReducedMotion && prefersReducedMotion) {
+      setOffset(0)
+      return
+    }
+
     let raf = 0
     const onScroll = () => {
       const y = window.scrollY || window.pageYOffset || 0
-      // Use rAF to avoid jank
       cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => setOffset(y * speed))
     }
@@ -22,16 +39,16 @@ export default function ParallaxLayer({ speed = 0.2, className = "", style = {},
       window.removeEventListener("scroll", onScroll)
       cancelAnimationFrame(raf)
     }
-  }, [speed])
+  }, [speed, respectReducedMotion, prefersReducedMotion])
 
   const mergedStyle = {
-    transform: `translate3d(0, ${offset.toFixed(2)}px, 0)`,
-    willChange: "transform",
+    transform: respectReducedMotion && prefersReducedMotion ? undefined : `translate3d(0, ${offset.toFixed(2)}px, 0)`,
+    willChange: respectReducedMotion && prefersReducedMotion ? undefined : "transform",
     ...style,
   }
 
   return (
-    <div className={className} style={mergedStyle}>
+    <div className={className} style={mergedStyle} aria-hidden>
       {children}
     </div>
   )

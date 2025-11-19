@@ -3,8 +3,8 @@ import ParallaxLayer from "./ParallaxLayer"
 export default function Footer() {
   return (
     <footer className="relative border-t border-slate-200 bg-white overflow-hidden">
-      <ParallaxLayer speed={0.03} className="absolute -left-16 bottom-0 h-40 w-40 rounded-full bg-cyan-400/20 blur-2xl" />
-      <ParallaxLayer speed={0.02} className="absolute -right-16 -top-10 h-40 w-40 rounded-full bg-fuchsia-400/20 blur-2xl" />
+      <ParallaxLayer speed={0.06} className="absolute -left-16 bottom-0 h-40 w-40 rounded-full bg-cyan-400/25 blur-2xl" />
+      <ParallaxLayer speed={0.04} className="absolute -right-16 -top-10 h-40 w-40 rounded-full bg-fuchsia-400/25 blur-2xl" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
